@@ -10,6 +10,7 @@ import kotlinx.coroutines.internal.synchronized
 
 const val DATABASE_VERSION = 1
 const val DATABASE_NAME = "universities_database"
+const val DATABASE_FILE_PATH = "database/universities.db"
 
 @Database(
     entities = [City::class, College::class, CollegeField::class, CollegeMhxField::class, Field::class, Lesson::class, MhxField::class],
@@ -32,6 +33,7 @@ abstract class UniversitiesDatabase : RoomDatabase() {
                 klass = UniversitiesDatabase::class.java,
                 name = DATABASE_NAME,
             )
+                .createFromAsset(DATABASE_FILE_PATH)
                 .fallbackToDestructiveMigration()
                 .build()
                 .also { Instance = it }
