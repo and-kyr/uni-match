@@ -1,24 +1,8 @@
 package gr.unimatch.android.viewmodel
 
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import gr.unimatch.android.common.createViewModelFactory
-import gr.unimatch.android.repository.MhxFieldsRepository
+import androidx.lifecycle.LiveData
+import gr.unimatch.android.database.entity.MhxField
 
-class MhxFieldsViewModel(
-    private val savedState: SavedStateHandle,
-    private val mhxFieldsRepository: MhxFieldsRepository,
-) : ViewModel() {
-    val mhxFields = mhxFieldsRepository.getMhxFields()
-
-    companion object {
-        val Factory: ViewModelProvider.Factory =
-            createViewModelFactory { savedStateHandle, appContainer ->
-                MhxFieldsViewModel(
-                    savedState = savedStateHandle,
-                    mhxFieldsRepository = appContainer.mhxFieldsRepository,
-                )
-            }
-    }
+interface MhxFieldsViewModel {
+    val mhxFields: LiveData<List<MhxField>>
 }
