@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import gr.unimatch.android.database.dao.CollegeMhxFieldDao
 import gr.unimatch.android.database.dao.FieldDao
 import gr.unimatch.android.database.dao.MhxFieldDao
 import gr.unimatch.android.database.entity.*
@@ -23,6 +24,7 @@ const val DATABASE_FILE_PATH = "database/universities.db"
 abstract class UniversitiesDatabase : RoomDatabase() {
     abstract fun fieldDao(): FieldDao
     abstract fun mhxFieldDao(): MhxFieldDao
+    abstract fun collegeMhxFieldDao(): CollegeMhxFieldDao
 
     companion object {
         @Volatile

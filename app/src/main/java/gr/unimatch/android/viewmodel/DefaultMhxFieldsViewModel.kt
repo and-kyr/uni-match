@@ -3,6 +3,7 @@ package gr.unimatch.android.viewmodel
 import androidx.lifecycle.*
 import gr.unimatch.android.common.createViewModelFactory
 import gr.unimatch.android.database.entity.MhxField
+import gr.unimatch.android.repository.CollegeMhxFieldsRepository
 import gr.unimatch.android.repository.MhxFieldsRepository
 import gr.unimatch.android.viewmodel.MhxFieldsViewModel.Companion.DEFAULT_MHX_FIELDS
 import gr.unimatch.android.viewmodel.MhxFieldsViewModel.Companion.SELECTED_MHX_FIELDS_KEY
@@ -10,6 +11,7 @@ import gr.unimatch.android.viewmodel.MhxFieldsViewModel.Companion.SELECTED_MHX_F
 class DefaultMhxFieldsViewModel(
     private val savedState: SavedStateHandle,
     private val mhxFieldsRepository: MhxFieldsRepository,
+    private val collegeMhxFieldsRepository: CollegeMhxFieldsRepository,
 ) : ViewModel(), MhxFieldsViewModel {
     override val mhxFields = mhxFieldsRepository.getMhxFields()
 
@@ -40,6 +42,7 @@ class DefaultMhxFieldsViewModel(
                 DefaultMhxFieldsViewModel(
                     savedState = savedStateHandle,
                     mhxFieldsRepository = appContainer.mhxFieldsRepository,
+                    collegeMhxFieldsRepository = appContainer.collegeMhxFieldsRepository,
                 )
             }
     }

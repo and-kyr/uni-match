@@ -2,6 +2,7 @@ package gr.unimatch.android
 
 import android.content.Context
 import gr.unimatch.android.database.UniversitiesDatabase
+import gr.unimatch.android.repository.CollegeMhxFieldsRepository
 import gr.unimatch.android.repository.FieldsRepository
 import gr.unimatch.android.repository.MhxFieldsRepository
 
@@ -14,5 +15,9 @@ class AppContainer(context: Context) {
 
     val mhxFieldsRepository by lazy {
         MhxFieldsRepository(database.mhxFieldDao())
+    }
+
+    val collegeMhxFieldsRepository by lazy {
+        CollegeMhxFieldsRepository(database.collegeMhxFieldDao())
     }
 }

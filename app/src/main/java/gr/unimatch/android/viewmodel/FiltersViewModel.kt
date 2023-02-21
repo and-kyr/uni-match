@@ -7,11 +7,15 @@ import gr.unimatch.android.AppContainer
 import gr.unimatch.android.common.createViewModelFactory
 
 class FiltersViewModel(
-    savedState: SavedStateHandle,
-    appContainer: AppContainer,
+    private val savedState: SavedStateHandle,
+    private val appContainer: AppContainer,
 ) : ViewModel(),
     FieldsViewModel by DefaultFieldsViewModel(savedState, appContainer.fieldsRepository),
-    MhxFieldsViewModel by DefaultMhxFieldsViewModel(savedState, appContainer.mhxFieldsRepository) {
+    MhxFieldsViewModel by DefaultMhxFieldsViewModel(
+        savedState,
+        appContainer.mhxFieldsRepository,
+        appContainer.collegeMhxFieldsRepository,
+    ) {
 
     companion object {
         val Factory: ViewModelProvider.Factory =
