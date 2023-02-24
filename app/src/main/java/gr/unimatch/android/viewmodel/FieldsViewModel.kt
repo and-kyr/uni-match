@@ -6,6 +6,8 @@ import gr.unimatch.android.database.entity.Field
 interface FieldsViewModel {
     val fields: LiveData<List<Field>>
     val selectedFields: LiveData<Set<Field>>
+    val collegeIdsBySelectedFields: Set<Int>
+    val totalCollegesBySelectedFields: LiveData<Int>
 
     fun onFieldAdded(field: Field)
     fun onFieldRemoved(field: Field)

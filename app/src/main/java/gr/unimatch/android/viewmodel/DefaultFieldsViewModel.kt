@@ -36,6 +36,22 @@ class DefaultFieldsViewModel(
         selectedFieldsValue = selectedFieldsValue - field
     }
 
+    override var collegeIdsBySelectedFields: Set<Int> = setOf()
+        private set
+
+    override val totalCollegesBySelectedFields: LiveData<Int> =
+        selectedFields.switchMap { fields ->
+            liveData {
+                collegeIdsBySelectedFields = getCollegeIds(fields)
+                emit(collegeIdsBySelectedFields.size)
+            }
+        }
+
+    private suspend fun getCollegeIds(selectedFields: Set<Field>) =
+        collegeFieldsRepository.getCollegeIds(
+            fieldIds = selectedFields.map { it.id }.toSet()
+        ).toSet()
+
     companion object {
         val Factory: ViewModelProvider.Factory =
             createViewModelFactory { savedStateHandle, appContainer ->
