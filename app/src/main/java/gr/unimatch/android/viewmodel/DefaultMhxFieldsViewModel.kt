@@ -35,6 +35,21 @@ class DefaultMhxFieldsViewModel(
         selectedMhxFieldsValue = selectedMhxFieldsValue - field
     }
 
+    override var collegeIdsBySelectedMhxFields: Set<Int> = setOf()
+        private set
+
+    override val totalCollegesBySelectedMhxFields: LiveData<Int> =
+        selectedMhxFields.switchMap { mhxFields ->
+            liveData {
+                collegeIdsBySelectedMhxFields = getCollegeIds(mhxFields)
+                emit(collegeIdsBySelectedMhxFields.size)
+            }
+        }
+
+    private suspend fun getCollegeIds(selectedMhxFields: Set<MhxField>) =
+        collegeMhxFieldsRepository.getCollegeIds(
+            mhxFieldIds = selectedMhxFields.map { it.id }.toSet()
+        ).toSet()
 
     companion object {
         val Factory: ViewModelProvider.Factory =
