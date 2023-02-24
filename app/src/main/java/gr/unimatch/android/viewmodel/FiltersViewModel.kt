@@ -10,11 +10,15 @@ class FiltersViewModel(
     private val savedState: SavedStateHandle,
     private val appContainer: AppContainer,
 ) : ViewModel(),
-    FieldsViewModel by DefaultFieldsViewModel(savedState, appContainer.fieldsRepository),
+    FieldsViewModel by DefaultFieldsViewModel(
+        savedState = savedState,
+        fieldsRepository = appContainer.fieldsRepository,
+        collegeFieldsRepository = appContainer.collegeFieldsRepository,
+    ),
     MhxFieldsViewModel by DefaultMhxFieldsViewModel(
-        savedState,
-        appContainer.mhxFieldsRepository,
-        appContainer.collegeMhxFieldsRepository,
+        savedState = savedState,
+        mhxFieldsRepository = appContainer.mhxFieldsRepository,
+        collegeMhxFieldsRepository = appContainer.collegeMhxFieldsRepository,
     ) {
 
     companion object {
