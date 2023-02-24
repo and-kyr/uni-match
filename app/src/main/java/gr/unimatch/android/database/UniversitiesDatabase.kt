@@ -39,9 +39,12 @@ abstract class UniversitiesDatabase : RoomDatabase() {
                 klass = UniversitiesDatabase::class.java,
                 name = DATABASE_NAME,
             )
-                .createFromAsset(DATABASE_FILE_PATH)
                 .fallbackToDestructiveMigration()
+                .createFromAsset(DATABASE_FILE_PATH)
                 .build()
-                .also { Instance = it }
+                .also {
+                    it.openHelper.writableDatabase
+                    Instance = it
+                }
     }
 }
