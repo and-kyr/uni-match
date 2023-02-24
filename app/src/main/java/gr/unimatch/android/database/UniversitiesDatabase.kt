@@ -4,10 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import gr.unimatch.android.database.dao.CollegeFieldDao
-import gr.unimatch.android.database.dao.CollegeMhxFieldDao
-import gr.unimatch.android.database.dao.FieldDao
-import gr.unimatch.android.database.dao.MhxFieldDao
+import gr.unimatch.android.database.dao.*
 import gr.unimatch.android.database.entity.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
@@ -23,10 +20,11 @@ const val DATABASE_FILE_PATH = "database/universities.db"
 )
 @OptIn(InternalCoroutinesApi::class)
 abstract class UniversitiesDatabase : RoomDatabase() {
-    abstract fun fieldDao(): FieldDao
-    abstract fun mhxFieldDao(): MhxFieldDao
+    abstract fun collegeDao(): CollegeDao
     abstract fun collegeFieldDao(): CollegeFieldDao
     abstract fun collegeMhxFieldDao(): CollegeMhxFieldDao
+    abstract fun fieldDao(): FieldDao
+    abstract fun mhxFieldDao(): MhxFieldDao
 
     companion object {
         @Volatile
