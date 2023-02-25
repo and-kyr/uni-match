@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">UniMatch</string>
+    <plurals name="college_results">
+        <item quantity="one">%d Αποτέλεσμα</item>
+        <item quantity="other">%d Αποτελέσματα</item>
+    </plurals>
+    <string name="fields_filter_label">Επιστημονική Περιοχή</string>
+    <string name="mhx_fields_filter_label">Επιστημονική Πεδίο (Μηχανογραφικό)</string>
 </resources>

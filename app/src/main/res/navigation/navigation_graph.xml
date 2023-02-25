@@ -6,8 +6,15 @@
 
     <fragment
         android:id="@+id/filtersScreen"
-        android:name="gr.unimatch.android.ui.FiltersScreen"
+        android:name="gr.unimatch.android.ui.filters.FiltersScreen"
         android:label="filters_screen">
+        <action
+            android:id="@+id/action_filtersScreen_to_resultsScreen"
+            app:destination="@+id/resultsScreen">
+            <argument
+                android:name="collegeIds"
+                app:argType="integer[]" />
+        </action>
     </fragment>
 
     <fragment
