@@ -15,9 +15,8 @@ class DefaultFieldsViewModel(
 ) : ViewModel(), FieldsViewModel {
     override val fields = fieldsRepository.getFields()
 
-    private var selectedFieldsValue
-        get() = savedState[SELECTED_FIELDS_KEY]
-            ?: DEFAULT_FIELDS
+    private var selectedFieldsValue: List<Field>
+        get() = savedState[SELECTED_FIELDS_KEY] ?: DEFAULT_FIELDS
         set(value) {
             savedState[SELECTED_FIELDS_KEY] = value
         }
@@ -26,7 +25,7 @@ class DefaultFieldsViewModel(
         get() = savedState.getLiveData(
             key = SELECTED_FIELDS_KEY,
             initialValue = DEFAULT_FIELDS,
-        ).distinctUntilChanged()
+        ).map { it.toSet() }.distinctUntilChanged()
 
     override fun onFieldAdded(field: Field) {
         selectedFieldsValue = selectedFieldsValue + field
@@ -36,14 +35,10 @@ class DefaultFieldsViewModel(
         selectedFieldsValue = selectedFieldsValue - field
     }
 
-    override var collegeIdsBySelectedFields: Set<Int> = setOf()
-        private set
-
-    override val totalCollegesBySelectedFields: LiveData<Int> =
+    override val collegeIdsBySelectedFields: LiveData<Set<Int>> =
         selectedFields.switchMap { fields ->
             liveData {
-                collegeIdsBySelectedFields = getCollegeIds(fields)
-                emit(collegeIdsBySelectedFields.size)
+                emit(getCollegeIds(fields))
             }
         }
 
