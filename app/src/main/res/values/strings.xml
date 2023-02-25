@@ -6,4 +6,10 @@
     </plurals>
     <string name="fields_filter_label">Επιστημονική Περιοχή</string>
     <string name="mhx_fields_filter_label">Επιστημονική Πεδίο (Μηχανογραφικό)</string>
+    <plurals name="college_results_with_selected_filters">
+        <item quantity="one">Βρέθηκε %d Πανεπιστήμιο με τα επιλεγμένα κριτήρια</item>
+        <item quantity="other">Βρέθηκαν %d Πανεπιστήμια με τα επιλεγμένα κριτήρια</item>
+    </plurals>
+    <string name="visit_college_website">Επισκεφθείτε τη σελίδα του Πανεπιστημίου</string>
+    <string name="open_website_error">Ουπς, κάτι πήγε στραβά!</string>
 </resources>

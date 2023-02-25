@@ -19,6 +19,10 @@
 
     <fragment
         android:id="@+id/resultsScreen"
+        android:name="gr.unimatch.android.ui.results.ResultsScreen"
         android:label="results_screen">
+        <argument
+            android:name="collegeIds"
+            app:argType="integer[]" />
     </fragment>
 </navigation>

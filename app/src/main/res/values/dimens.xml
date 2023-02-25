@@ -6,4 +6,8 @@
     <dimen name="divider_default_vertical_padding">4dp</dimen>
     <dimen name="filters_screen_filter_items_default_padding">4dp</dimen>
     <dimen name="filters_screen_filter_items_default_spacer">4dp</dimen>
+    <dimen name="results_screen_content_padding">16dp</dimen>
+    <dimen name="results_screen_default_item_spacer">20dp</dimen>
+    <dimen name="results_screen_item_card_border">1dp</dimen>
+    <dimen name="results_screen_item_card_content_padding">8dp</dimen>
 </resources>
