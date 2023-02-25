@@ -1,10 +1,12 @@
 package gr.unimatch.android.database.entity
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.Companion.NO_ACTION
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
 @Entity(
     tableName = "college",
@@ -18,6 +20,7 @@ import androidx.room.PrimaryKey
         ),
     ]
 )
+@Parcelize
 data class College(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
@@ -39,4 +42,4 @@ data class College(
 
     @ColumnInfo(name = "info")
     val info: String?,
-)
+) : Parcelable
