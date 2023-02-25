@@ -6,14 +6,13 @@ import gr.unimatch.android.database.entity.MhxField
 interface MhxFieldsViewModel {
     val mhxFields: LiveData<List<MhxField>>
     val selectedMhxFields: LiveData<Set<MhxField>>
-    val collegeIdsBySelectedMhxFields: Set<Int>
-    val totalCollegesBySelectedMhxFields: LiveData<Int>
+    val collegeIdsBySelectedMhxFields: LiveData<Set<Int>>
 
     fun onMhxFieldAdded(field: MhxField)
     fun onMhxFieldRemoved(field: MhxField)
 
     companion object {
         const val SELECTED_MHX_FIELDS_KEY = "selectedMhxFields"
-        val DEFAULT_MHX_FIELDS = setOf<MhxField>()
+        val DEFAULT_MHX_FIELDS = listOf<MhxField>()
     }
 }

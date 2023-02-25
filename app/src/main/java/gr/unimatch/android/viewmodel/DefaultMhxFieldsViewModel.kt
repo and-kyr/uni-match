@@ -15,9 +15,9 @@ class DefaultMhxFieldsViewModel(
 ) : ViewModel(), MhxFieldsViewModel {
     override val mhxFields = mhxFieldsRepository.getMhxFields()
 
-    private var selectedMhxFieldsValue
+    private var selectedMhxFieldsValue: List<MhxField>
         get() = savedState[SELECTED_MHX_FIELDS_KEY] ?: DEFAULT_MHX_FIELDS
-        set(value) {
+        private set(value) {
             savedState[SELECTED_MHX_FIELDS_KEY] = value
         }
 
@@ -25,7 +25,7 @@ class DefaultMhxFieldsViewModel(
         get() = savedState.getLiveData(
             key = SELECTED_MHX_FIELDS_KEY,
             initialValue = DEFAULT_MHX_FIELDS,
-        ).distinctUntilChanged()
+        ).map { it.toSet() }.distinctUntilChanged()
 
     override fun onMhxFieldAdded(field: MhxField) {
         selectedMhxFieldsValue = selectedMhxFieldsValue + field
@@ -35,14 +35,10 @@ class DefaultMhxFieldsViewModel(
         selectedMhxFieldsValue = selectedMhxFieldsValue - field
     }
 
-    override var collegeIdsBySelectedMhxFields: Set<Int> = setOf()
-        private set
-
-    override val totalCollegesBySelectedMhxFields: LiveData<Int> =
+    override val collegeIdsBySelectedMhxFields: LiveData<Set<Int>> =
         selectedMhxFields.switchMap { mhxFields ->
             liveData {
-                collegeIdsBySelectedMhxFields = getCollegeIds(mhxFields)
-                emit(collegeIdsBySelectedMhxFields.size)
+                emit(getCollegeIds(mhxFields))
             }
         }
 
