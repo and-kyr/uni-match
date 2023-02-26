@@ -12,7 +12,6 @@ class CollegesRepository(private val collegeDao: CollegeDao) {
     suspend fun getColleges(collegeIds: Set<Int>) = withContext(Dispatchers.IO) {
         collegeDao.getColleges(
             collegeIds = collegeIds,
-            idsSize = collegeIds.size,
         )
     }
 }
