@@ -6,6 +6,9 @@ import gr.unimatch.android.database.entity.College
 
 @Dao
 interface CollegeDao {
+    @Query("SELECT * FROM college WHERE id == :id")
+    suspend fun getCollegeById(id: Int): College?
+
     @Query("SELECT * FROM college WHERE id IN (:collegeIds) OR :idsSize == 0")
     suspend fun getColleges(collegeIds: Set<Int>, idsSize: Int): List<College>
 }
