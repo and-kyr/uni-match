@@ -24,5 +24,21 @@
         <argument
             android:name="collegeIds"
             app:argType="integer[]" />
+        <action
+            android:id="@+id/action_resultsScreen_to_detailsScreen"
+            app:destination="@+id/detailsScreen">
+            <argument
+                android:name="collegeId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsScreen"
+        android:name="gr.unimatch.android.ui.details.DetailsScreen"
+        android:label="details_screen">
+        <argument
+            android:name="collegeId"
+            app:argType="integer" />
     </fragment>
 </navigation>

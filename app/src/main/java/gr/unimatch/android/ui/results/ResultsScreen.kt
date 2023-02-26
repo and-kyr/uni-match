@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.material.Surface
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import gr.unimatch.android.common.setContent
 import gr.unimatch.android.ui.theme.UniMatchTheme
@@ -30,9 +31,14 @@ class ResultsScreen : Fragment() {
             Surface {
                 ResultsContent(
                     viewModel = viewModel,
-                    onCollegeClicked = {},
+                    onCollegeClicked = ::onCollegeClicked,
                 )
             }
         }
+    }
+
+    private fun onCollegeClicked(id: Int) {
+        val action = ResultsScreenDirections.actionResultsScreenToDetailsScreen(id)
+        findNavController().navigate(action)
     }
 }

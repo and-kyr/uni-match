@@ -13,4 +13,9 @@
     <string name="visit_college_website">Επισκεφθείτε τη σελίδα του Πανεπιστημίου</string>
     <string name="open_website_error">Ουπς, κάτι πήγε στραβά!</string>
     <string name="results_mhx_code">ΚΩΔ.: %d</string>
+    <string name="show_more">Δες περισσότερα</string>
+    <string name="show_less">Δες λιγότερα</string>
+    <string name="expandable_button_text_content_description">Περισσότερα/Λιγότερα</string>
+    <string name="details_mhx_code">Κωδικός Μηχανογραφικού: %d</string>
+    <string name="details_university_icon_content_description">Εκπαιδευτικό Ίδρυμα</string>
 </resources>
