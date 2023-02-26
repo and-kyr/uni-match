@@ -11,7 +11,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import gr.unimatch.android.R
 import gr.unimatch.android.database.entity.College
@@ -19,10 +18,12 @@ import gr.unimatch.android.database.entity.College
 @Composable
 fun ResultsItem(
     college: College,
-    onSiteLinkClicked: (String) -> Unit
+    onCollegeClicked: (Int) -> Unit,
 ) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onCollegeClicked(college.id) },
         border = BorderStroke(
             width = dimensionResource(id = R.dimen.results_screen_item_card_border),
             color = Color.LightGray,
@@ -40,16 +41,9 @@ fun ResultsItem(
 
             college.university?.let { Text(text = it) }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
-            college.site?.let {
-                Text(
-                    modifier = Modifier.clickable { onSiteLinkClicked(it) },
-                    text = stringResource(id = R.string.visit_college_website),
-                    textDecoration = TextDecoration.Underline,
-                    color = Color.Blue,
-                )
-            }
+            college.mhxCode?.let { Text(text = stringResource(id = R.string.results_mhx_code, it)) }
         }
     }
 }

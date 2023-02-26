@@ -12,4 +12,5 @@
     </plurals>
     <string name="visit_college_website">Επισκεφθείτε τη σελίδα του Πανεπιστημίου</string>
     <string name="open_website_error">Ουπς, κάτι πήγε στραβά!</string>
+    <string name="results_mhx_code">ΚΩΔ.: %d</string>
 </resources>

@@ -17,7 +17,7 @@ import gr.unimatch.android.viewmodel.SearchViewModel.Companion.DEFAULT_COLLEGES
 @Composable
 fun ResultsContent(
     viewModel: DefaultSearchViewModel,
-    onSiteLinkClicked: (String) -> Unit,
+    onCollegeClicked: (Int) -> Unit,
 ) {
     val totalColleges by viewModel.totalColleges.observeAsState(0)
     val colleges by viewModel.collegesResult.observeAsState(DEFAULT_COLLEGES)
@@ -35,7 +35,7 @@ fun ResultsContent(
             college.name?.let {
                 ResultsItem(
                     college = college,
-                    onSiteLinkClicked = onSiteLinkClicked,
+                    onCollegeClicked = onCollegeClicked,
                 )
 
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.results_screen_default_item_spacer)))
