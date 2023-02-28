@@ -14,8 +14,8 @@ android {
         applicationId "gr.unimatch.android"
         minSdk rootProject.ext.min_sdk_version
         targetSdk rootProject.ext.compile_sdk_version
-        versionCode 1
-        versionName "1.0"
+        versionCode 280220230
+        versionName "0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
