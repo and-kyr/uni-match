@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">UniMatch</string>
+    <plurals name="college_results">
+        <item quantity="one">%d Αποτέλεσμα</item>
+        <item quantity="other">%d Αποτελέσματα</item>
+    </plurals>
+    <string name="fields_filter_label">Επιστημονική Περιοχή</string>
+    <string name="mhx_fields_filter_label">Επιστημονική Πεδίο (Μηχανογραφικό)</string>
+    <plurals name="college_results_with_selected_filters">
+        <item quantity="one">Βρέθηκε %d Πανεπιστήμιο με τα επιλεγμένα κριτήρια</item>
+        <item quantity="other">Βρέθηκαν %d Πανεπιστήμια με τα επιλεγμένα κριτήρια</item>
+    </plurals>
+    <string name="visit_college_website">Επισκεφθείτε τη σελίδα του Πανεπιστημίου</string>
+    <string name="open_website_error">Ουπς, κάτι πήγε στραβά!</string>
+    <string name="results_mhx_code">ΚΩΔ.: %d</string>
+    <string name="show_more">Δες περισσότερα</string>
+    <string name="show_less">Δες λιγότερα</string>
+    <string name="expandable_button_text_content_description">Περισσότερα/Λιγότερα</string>
+    <string name="details_mhx_code">Κωδικός Μηχανογραφικού: %d</string>
+    <string name="details_university_icon_content_description">Εκπαιδευτικό Ίδρυμα</string>
+</resources>
